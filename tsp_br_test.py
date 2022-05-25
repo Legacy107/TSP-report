@@ -49,4 +49,3 @@ def tsp_br():
     find_solution(1)
     return minimum
     # print(' '.join(map(lambda x: str(x + 1), solution)))
-
