@@ -4,7 +4,7 @@ from tsp_mst_test import tsp_mst
 from tsp_dp_test import tsp_dp
 
 with open("result_greedy.txt", "a") as file_greedy, open("result_mst.txt", "a") as file_mst:
-    for i in range(21, 22):
+    for i in range(3, 22):
         time_greedy = 0.0
         score_greedy = 0.0
         time_mst = 0.0

@@ -3,12 +3,12 @@ from tsp_br_test import tsp_br
 from tsp_dp_test import tsp_dp
 
 with open("result_br.txt", "a") as file_br, open("result_dp.txt", "a") as file_dp:
-    for i in range(20, 22):
+    for i in range(3, 22):
         time_br = 0.0
         time_dp = 0.0
         for j in range(10):
             gen_test(i)
-            # time_br += tsp_br()[0]
+            time_br += tsp_br()[0]
             time_dp += tsp_dp()[0]
             print(f"Completed test {j} of n = {i}")
 
