@@ -1,7 +1,7 @@
 from timer import timer_func_with_result
 
 @timer_func_with_result
-def tsp_br():
+def tsp_br(filename):
     length = 0
     cities = []
     minimum = 0
@@ -33,7 +33,7 @@ def tsp_br():
                 length -= distance[cities[index - 1]][cities[index]]
 
 
-    with open("input.txt", "r") as file:
+    with open(filename, "r") as file:
         n = int(file.readline())
         visited = [False] * n
         cities = [0] * n

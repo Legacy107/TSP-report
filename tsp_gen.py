@@ -1,7 +1,7 @@
 from random import randint
 
-def gen_test(n):
-    with open("input.txt", "w") as file:
+def gen_test(n, filename):
+    with open(filename, "w") as file:
         file.write(f"{n}\n")
 
         for i in range(n):

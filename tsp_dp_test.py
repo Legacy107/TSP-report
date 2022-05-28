@@ -2,7 +2,7 @@ from timer import timer_func_with_result
 import functools
 
 @timer_func_with_result
-def tsp_dp():
+def tsp_dp(filename):
     distance = []
     n = 0
     V = 0
@@ -31,7 +31,7 @@ def tsp_dp():
         return result
 
 
-    with open("input.txt", "r") as file:
+    with open(filename, "r") as file:
         n = int(file.readline())
         V = (1 << n) - 1
         solution = [0] * n

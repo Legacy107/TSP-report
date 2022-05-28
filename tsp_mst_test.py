@@ -41,7 +41,7 @@ def find_minimum_spanning_tree(n, edge_list):
     return mst_adj_list
 
 @timer_func_with_result
-def tsp_mst():
+def tsp_mst(filename):
     n = 0
     distance = []
     visited = []
@@ -49,7 +49,7 @@ def tsp_mst():
     solution = []
     edge_list = []
 
-    with open("input.txt", "r") as file:
+    with open(filename, "r") as file:
         n = int(file.readline())
         visited = [False] * n
         distance = [[0] * n for i in range(n)]

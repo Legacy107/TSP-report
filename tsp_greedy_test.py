@@ -1,14 +1,14 @@
 from timer import timer_func_with_result
 
 @timer_func_with_result
-def tsp_greedy():
+def tsp_greedy(filename):
     n = 0
     distance = []
     visited = []
     length = 0
     solution = []
 
-    with open("input.txt", "r") as file:
+    with open(filename, "r") as file:
         n = int(file.readline())
         visited = [False] * n
         distance = [[0] * n for i in range(n)]
