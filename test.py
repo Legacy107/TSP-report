@@ -17,20 +17,17 @@ def run_dp(filename, number_city, test_number):
     return runtime
 
 def main():
-    start = 10
-    end = 11
-    test_size = 20
+    start = 3
+    end = 13
+    test_size = 100
     batch = psutil.cpu_count(logical=False) // 2
 
-    with (
-        open("result_br.txt", "a") as file_br,
-        open("result_dp.txt", "a") as file_dp,
-        concurrent.futures.ProcessPoolExecutor() as executor
-    ):
+    with open("result_br.txt", "a") as file_br, open("result_dp.txt", "a") as file_dp, concurrent.futures.ProcessPoolExecutor() as executor:
         for number_city in range(start, end):
             time_br = 0.0
             time_dp = 0.0
 
+            # split test into batches base on cpu count
             for batch_start in range(0, test_size, batch):
                 br_futures = []
                 dp_futures = []
@@ -48,6 +45,7 @@ def main():
             file_br.write(f"{number_city} {time_br / float(test_size)}\n")
             file_dp.write(f"{number_city} {time_dp / float(test_size)}\n")
 
+    # cleanup
     for number_city in range(test_size):
         os.remove(f"input_{number_city}.txt")
 
