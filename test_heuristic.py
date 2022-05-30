@@ -27,7 +27,7 @@ def main():
     start = 3
     end = 22
     test_size = 100
-    batch = psutil.cpu_count(false=True) // 2
+    batch = psutil.cpu_count(logical=False) // 2
 
     with open("result_greedy.txt", "a") as file_greedy, open("result_mst.txt", "a") as file_mst, concurrent.futures.ProcessPoolExecutor() as executor:
         for number_city in range(start, end):
