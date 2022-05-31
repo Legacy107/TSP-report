@@ -3,18 +3,13 @@ distance = []
 n = 0
 V = 0
 power2 = {}
-f = {}
 
 @functools.lru_cache(maxsize=None)
 def calculate_f(S, u):
-    if f.get((S, u), 0):
-        return f[(S, u)]
-    
     S -= (1 << u)
 
     if not S:
-        f[(S, u)] = distance[u][0]
-        return f[(S, u)]
+        return distance[u][0]
 
     result = 0
     temp = S
@@ -25,9 +20,8 @@ def calculate_f(S, u):
             result = calculate_f(S, power2[v]) + distance[u][power2[v]]
         else:
             result = min(result, calculate_f(S, power2[v]) + distance[u][power2[v]])
-    
-    f[(S, u)] = result
-    return f[(S, u)]
+
+    return result
 
 
 with open("input.txt", "r") as file:

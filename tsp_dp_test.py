@@ -7,7 +7,6 @@ def tsp_dp(filename):
     n = 0
     V = 0
     power2 = []
-    f = []
 
     @functools.lru_cache(maxsize=None)
     def calculate_f(S, u):
